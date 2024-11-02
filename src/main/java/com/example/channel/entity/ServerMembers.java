@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Entity
 @Getter
 @Setter
@@ -17,7 +19,7 @@ public class ServerMembers {
     private String serverId;
     private String userId;
     private String role;
-    private String joinedAt;
+    private Timestamp joinedAt;
     private String permissions;
 
 }

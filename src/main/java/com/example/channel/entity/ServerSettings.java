@@ -14,6 +14,7 @@ public class ServerSettings {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    private String serverId;
     private String settingsKey;
     private String settingsValue;
 
