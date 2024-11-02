@@ -14,7 +14,7 @@ public class ServerRoles {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    private String ServerId;
+    private String serverId;
     private String name;
     private String permissions;
 
