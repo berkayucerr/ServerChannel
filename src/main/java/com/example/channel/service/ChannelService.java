@@ -30,4 +30,16 @@ public class ChannelService {
     public List<Channel> getChannelsByServer(String serverId) {
         return channelRepository.findByServerId(serverId);
     }
+
+    public Channel updateChannel(String channelId, String name, String type) {
+        Channel channel = channelRepository.findById(channelId).orElseThrow(() -> new RuntimeException("Channel not found"));
+        channel.setName(name);
+        channel.setType(type);
+        return channelRepository.save(channel);
+    }
+
+    public Channel getChannelById(String channelId) {
+        return channelRepository.findById(channelId).orElseThrow(() -> new RuntimeException("Channel not found"));
+    }
+
 }
