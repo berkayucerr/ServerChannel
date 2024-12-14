@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface ServerRolesRepository extends JpaRepository<ServerRoles, String> {
     List<ServerRoles> findByServerId(String serverId);
-
 }

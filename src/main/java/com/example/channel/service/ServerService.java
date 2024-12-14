@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -49,6 +50,7 @@ public class ServerService {
         jsonBuilder.append("}");
         return jsonBuilder.toString();
     }
+
     public void setRolePermissions(String serverId, String roleId, Map<String, Boolean> permissions) {
 
         ServerRoles role = serverRoleService.findById(roleId)
@@ -58,5 +60,13 @@ public class ServerService {
         role.setPermissions(permissionsJson);
         role.setServerId(serverId);
         serverRoleService.saveRole(role);
+    }
+
+    public Server findServerById(String serverId) {
+        return serverRepository.findById(serverId).orElseThrow(() -> new RuntimeException("Server could not find"));
+    }
+
+    public List<Server> findAll() {
+        return serverRepository.findAll();
     }
 }

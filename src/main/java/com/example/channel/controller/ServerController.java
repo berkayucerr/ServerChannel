@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -19,6 +20,13 @@ public class ServerController {
     public ResponseEntity<Server> createServer(@RequestBody Server server) {
         Server createdServer = serverService.createServer(server.getName(), server.getDescription(), server.getOwnerId());
         return ResponseEntity.ok(createdServer);
+    }
+
+
+    @GetMapping
+    public ResponseEntity<List<Server>> getServers() {
+        List<Server> serverList = serverService.findAll();
+        return ResponseEntity.ok(serverList);
     }
 
     @DeleteMapping("/{serverId}")

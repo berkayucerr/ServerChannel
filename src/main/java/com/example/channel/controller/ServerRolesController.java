@@ -29,7 +29,7 @@ public class ServerRolesController {
     }
 
     @DeleteMapping("/{roleId}")
-    public ResponseEntity<Void> deleteRole(@PathVariable String roleId) {
+    public ResponseEntity<String> deleteRole(@PathVariable String roleId, @PathVariable String serverId) {
         serverRoleService.deleteRole(roleId);
         return ResponseEntity.noContent().build();
     }
